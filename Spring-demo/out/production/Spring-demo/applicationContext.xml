@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- add entry to enable component scanning -->
+
+    <context:component-scan base-package="com.springdemo" />
+
+    <bean id = "fortune" class="com.springdemo.Myfortuneservice">
+
+    </bean>
+    <bean id = "Mycoach"
+          class = "com.springdemo.baseball">
+        <constructor-arg ref = "fortune"/>
+    </bean>
+    <bean id ="giveup"
+          class = "com.springdemo.mytrack">
+        <constructor-arg ref = "fortune"/>
+    </bean>
+    <bean id = "cric" class = "com.springdemo.cricket">
+        <property name="fort" ref = "fortune"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- add entry to enable component scanning -->
+
+    <context:component-scan base-package="com.springdemo" />
+    <context:property-placeholder location="classpath:sport.properties"/>
+    <bean id = "varset" class = "com.springdemo.variablesetter">
+       <!-- this is for setting value by hardcode-->
+        <!--<property name="msg" value="hello this my first time"/>
+        <property name="num" value="20"/>-->
+
+        <!--This is for setting value from properties file-->
+        <property name="msg" value="${annu.msg}"/>
+        <property name="num" value="${annu.num}"/>
+    </bean>
+
+</beans>
